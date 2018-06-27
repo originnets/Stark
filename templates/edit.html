@@ -115,12 +115,19 @@
                 <button id="show-toolbar-btn">显示工具栏</button>
                 <button id="close-toolbar-btn">隐藏工具栏</button>
                 <button id="toc-menu-btn">ToC下拉菜单</button>
-                <button id="toc-default-btn">ToC 默认</button>
+                <button id="toc-default-btn">ToC 默认</button>.
                 <div>
                     <input type="text" id="title" name="title" placeholder="请输入标题" style="height: 40px; width: 90%; margin-top: 10px;">
                 </div>
                 <div>
                     <input type="text" id="category" name="category" placeholder="类别" style="height: 40px; width: 90%; margin-top: 10px;">
+                </div>
+                <div>
+                    {{ v.0.ar_name }}
+                    {% for k in v %}
+                        <p>{{ k.ar_name }}</p>
+                        <p>{{ k.category}}</p>
+                    {% endfor %}
                 </div>
             </div>
             <div id="test-editormd"></div>
