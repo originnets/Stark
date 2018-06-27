@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8" />
+        <title>Editor</title>
+        <link rel="stylesheet" href="/static/css/style.css" />
+        <link rel="stylesheet" href="/static/css/editormd.css" />
+        <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
+        <style>            
+            /*.editormd-preview-theme-dark {
+                color: #777;
+                background:#2C2827;
+            }
+            
+            .editormd-preview-theme-dark .editormd-toc-menu > .markdown-toc {
+                background:#fff;
+                border:none;
+            }
+            
+            .editormd-preview-theme-dark .editormd-toc-menu > .markdown-toc h1{
+                border-color:#ddd;
+            }
+            
+            .editormd-preview-theme-dark .markdown-body h1,
+            .editormd-preview-theme-dark .markdown-body h2,
+            .editormd-preview-theme-dark .markdown-body hr {
+                border-color: #222;
+            }
+            
+            .editormd-preview-theme-dark .editormd-preview-container  blockquote {
+                color: #555;
+                border-color: #333;
+                background: #222;
+                padding: 0.5em;
+            }
+            
+            .editormd-preview-theme-dark .editormd-preview-container abbr {
+                background:#ff9900;
+                color: #fff;
+                padding: 1px 3px;
+                border-radius: 3px; 
+            }
+            
+            .editormd-preview-theme-dark .editormd-preview-container code {
+                background: #5A9600;
+                color: #fff;
+                border: none;
+                padding: 1px 3px;
+                border-radius: 3px; 
+            }
+            
+            .editormd-preview-theme-dark .editormd-preview-container table {
+                border: none;
+            }
+            
+            .editormd-preview-theme-dark .editormd-preview-container .fa-emoji {
+                color: #B4BF42;
+            }
+            
+            .editormd-preview-theme-dark .editormd-preview-container .katex {
+                color: #FEC93F;
+            }
+            
+            .editormd-preview-theme-dark [class*=editormd-logo] {
+                color: #2196F3;
+            }
+            
+            .editormd-preview-theme-dark .sequence-diagram text {
+                fill: #fff;
+            }
+            
+            .editormd-preview-theme-dark .sequence-diagram rect, 
+            .editormd-preview-theme-dark .sequence-diagram path {
+                color:#fff;
+                fill : #64D1CB;
+                stroke : #64D1CB;
+            }
+            
+            .editormd-preview-theme-dark .flowchart rect, 
+            .editormd-preview-theme-dark .flowchart path {
+                stroke : #A6C6FF;
+            }
+            
+            .editormd-preview-theme-dark .flowchart rect {
+                fill: #A6C6FF;
+            }
+            
+            .editormd-preview-theme-dark .flowchart text {
+                fill: #5879B4;
+            }*/
+        </style>     
+    </head>
+    <body>
+        <div id="layout">
+            <header>
+                <h1>完整示例</h1>
+<!--                <p>Full example</p>-->
+                <ul style="margin: 10px 0 0 18px;">
+                    <li>启用HTML标签解码</li>
+                    <li>启用TEX、流程图、顺序图、EMOJI、FontAwesome、任务列表</li>
+                    <li>启用图像上传</li>
+                    <li>启用[COTM]，搜索替换，代码折叠</li>
+                </ul>            
+            </header>
+            <div class="btns">
+                <button id="goto-line-btn">到达第90列</button>
+                <button id="show-btn">显示编辑器</button>
+                <button id="hide-btn">隐藏编辑器</button>
+                <button id="get-md-btn">获取Markdown格式</button>
+                <button id="get-html-btn">获取HTML格式</button>
+                <button id="watch-btn">查看</button>
+                <button id="unwatch-btn">隐藏</button>
+                <button id="preview-btn">预览HTML(按Shift + ESC取消)</button>
+                <button id="fullscreen-btn">全屏(ESC取消)</button>
+                <button id="show-toolbar-btn">显示工具栏</button>
+                <button id="close-toolbar-btn">隐藏工具栏</button>
+                <button id="toc-menu-btn">ToC下拉菜单</button>
+                <button id="toc-default-btn">ToC 默认</button>
+                <div>
+                    <input type="text" id="title" name="title" placeholder="请输入标题" style="height: 40px; width: 90%; margin-top: 10px;">
+                </div>
+                <div>
+                    <input type="text" id="category" name="category" placeholder="类别" style="height: 40px; width: 90%; margin-top: 10px;">
+                </div>
+            </div>
+            <div id="test-editormd"></div>
+        </div>
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/editormd.js"></script>
+        <script src="/static/js/jquery.cookie.js"></script>
+        <script src="/static/js/markdown-conf.js"></script>
+    </body>
+</html>
