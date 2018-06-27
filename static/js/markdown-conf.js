@@ -63,9 +63,10 @@ $("#hide-btn").bind('click', function(){
 $("#get-md-btn").bind('click', function(){
     // alert(testEditor.getMarkdown());
     var title = $("#title").val();
+    var category = $("#category").val();
     $.ajax({
         url:"/edit",
-        data:{'Abody':testEditor.getMarkdown(), "title": title},
+        data:{'Abody':testEditor.getMarkdown(), "title": title, "category": category},
         type:'POST',
         headers:{"X-CSRFToken":$.cookie('csrftoken')},  //防止csrf攻击
         success:function (data) {
