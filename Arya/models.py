@@ -24,3 +24,6 @@ class Article(models.Model):
     ar_name = models.CharField(max_length=200)
     category = models.CharField(max_length=20)
     date_time = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.ar_name

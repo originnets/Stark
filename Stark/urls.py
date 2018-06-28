@@ -18,7 +18,13 @@ from django.urls import path
 from Arya import views
 
 urlpatterns = [
-    path('admin', admin.site.urls),
+#    path('admin', admin.site.urls),
+    path('admin', views.Admin),
     path('edit', views.Edit),
     path('index', views.Index),
+    path('page_error', views.page_not_found),
+    path('about', views.About),
+    path('comment', views.Comment),
+    path('message', views.Message),
+    path('details', views.Details),
 ]

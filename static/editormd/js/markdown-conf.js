@@ -6,7 +6,7 @@ $(function(){
     testEditor = editormd("test-editormd", {
         width: "90%",
         height: 740,
-        path : '/static/lib/',
+        path : '/static/editormd/lib/',
 //      theme : "dark",
 //      previewTheme : "dark",
 		previewTheme : "dark",
