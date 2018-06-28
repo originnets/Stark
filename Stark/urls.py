@@ -20,4 +20,5 @@ from Arya import views
 urlpatterns = [
     path('admin', admin.site.urls),
     path('edit', views.Edit),
+    path('index', views.Index),
 ]

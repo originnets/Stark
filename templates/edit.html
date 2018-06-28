@@ -3,8 +3,8 @@
     <head>
         <meta charset="utf-8" />
         <title>Editor</title>
-        <link rel="stylesheet" href="/static/css/style.css" />
-        <link rel="stylesheet" href="/static/css/editormd.css" />
+        <link rel="stylesheet" href="/static/editormd/css/style.css" />
+        <link rel="stylesheet" href="/static/editormd/css/editormd.css" />
         <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
         <style>            
             /*.editormd-preview-theme-dark {
@@ -116,19 +116,24 @@
                 <button id="close-toolbar-btn">隐藏工具栏</button>
                 <button id="toc-menu-btn">ToC下拉菜单</button>
                 <button id="toc-default-btn">ToC 默认</button>
-                    <div>{{ v.category }}</div>
                 <div>
                     <input type="text" id="title" name="title" placeholder="请输入标题" style="height: 40px; width: 90%; margin-top: 10px;">
                 </div>
                 <div>
                     <input type="text" id="category" name="category" placeholder="类别" style="height: 40px; width: 90%; margin-top: 10px;">
                 </div>
+                {% for i in v %}
+                    <button>{{ i.id }}</button>
+                    <button>{{ i.ar_name }}</button>
+                    <button>{{ i.category }}</button>
+                    <button>{{ i.date_time}}</button>
+                {% endfor %}
             </div>
             <div id="test-editormd"></div>
         </div>
-        <script src="/static/js/jquery.min.js"></script>
-        <script src="/static/js/editormd.js"></script>
-        <script src="/static/js/jquery.cookie.js"></script>
-        <script src="/static/js/markdown-conf.js"></script>
+        <script src="/static/editormd/js/jquery.min.js"></script>
+        <script src="/static/editormd/js/editormd.js"></script>
+        <script src="/static/editormd/js/jquery.cookie.js"></script>
+        <script src="/static/editormd/js/markdown-conf.js"></script>
     </body>
 </html>
