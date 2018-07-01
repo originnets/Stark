@@ -11,6 +11,15 @@ def Edit(request):
     if request.method == "GET":
         v = models.Article.objects.filter().all()
         return render(request, 'edit.html', {"v": v})
+    if request.method == "POST":
+        title = request.POST.get("title")
+        desc = request.POST.get("desc")
+        category = request.POST.get("category")
+        tag = request.POST.get("tag")
+        html_txt = request.POST.get("html_txt")
+        markdown_txt = request.POST.get("markdown_txt")
+       # print(title, desc, category, tag, html_txt, markdown_txt)
+        return render(request, 'edit.html', {"html_txt": html_txt})
     # if request.method == "POST":
     #     Abody = request.POST.get("Abody")
     #     Title = request.POST.get("title", None)

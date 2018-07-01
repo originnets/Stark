@@ -27,4 +27,5 @@ urlpatterns = [
     path('comment', views.Comment),
     path('message', views.Message),
     path('details', views.Details),
+    path('aaa', views.aaa),
 ]

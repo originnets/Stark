@@ -1,7 +1,7 @@
 $(function(){
     var testEditor;
     $(function() {
-
+        
         $.get('/static/md/test1.md', function(md){
     testEditor = editormd("test-editormd", {
         width: "90%",
@@ -60,30 +60,6 @@ $("#hide-btn").bind('click', function(){
     testEditor.hide();
 });
 
-
-//预览HTML
-$("#preview-btn").bind('click', function() {
-    testEditor.previewing();
-});
-//提交
-$("#submission").bind('click', function () {
-    var title = $("#title").val();
-    var desc = $("#desc").val();
-    var category = $("#category").val();
-    var tag = $("#tag").val();
-    var html_txt = testEditor.getHTML();
-    var markdown_txt = testEditor.getMarkdown();
-    $.ajax({
-        url:"/edit",
-        data:{"title": title, "desc": desc, "category": category, "tag": tag, "html_txt": html_txt, "markdown_txt": markdown_txt},
-        type:'POST',
-        headers:{"X-CSRFToken":$.cookie('csrftoken')},  //防止csrf攻击
-        success:function (data) {
-            //alert(data);
-        }
-    });
-});
-
 $("#get-md-btn").bind('click', function(){
     // alert(testEditor.getMarkdown());
     var title = $("#title").val();
@@ -101,15 +77,15 @@ $("#get-md-btn").bind('click', function(){
 
 $("#get-html-btn").bind('click', function() {
     alert(testEditor.getHTML());
-});
+});                
 
 $("#watch-btn").bind('click', function() {
     testEditor.watch();
-});
+});                 
 
 $("#unwatch-btn").bind('click', function() {
     testEditor.unwatch();
-});
+});              
 
 $("#preview-btn").bind('click', function() {
     testEditor.previewing();

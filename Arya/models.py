@@ -95,8 +95,6 @@ class Article(models.Model):
     click_count = models.IntegerField(default=0, verbose_name='点击次数')
     is_recommend = models.BooleanField(default=False, verbose_name='是否推荐')
     date_publish = models.DateTimeField(auto_now_add=True, verbose_name='发布时间')
-
-    #
     user = models.ForeignKey(User, verbose_name='用户', on_delete=models.CASCADE)
     category = models.ForeignKey(Category, blank=True, null=True, verbose_name='分类', on_delete=models.CASCADE)
     tag = models.ManyToManyField(Tag, verbose_name='标签')
