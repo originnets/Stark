@@ -4,13 +4,13 @@ $(function() {
 	$(function() {
 		Editor = editormd("editormd", {
 			width: "90%",
-			height: 740,
+			height: 650,
 			syncScrolling: "single",
 			path: "/static/editormd/lib/",
 			saveHTMLToTextarea : true,
-			theme : "dark",
-			previewTheme : "dark",
-			editorTheme : "pastel-on-dark",
+			// theme : "dark",
+			// previewTheme : "dark",
+			// editorTheme : "pastel-on-dark",
 			codeFold : true,
 			//syncScrolling : false,
 			searchReplace : true,

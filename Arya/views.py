@@ -10,6 +10,9 @@ def Edit(request):
     markdown文本编辑器
     """
     if request.method == "GET":
+        '''
+        获取数据库中的markdown文件
+        '''
         md = models.Article.objects.all().values('content_md')
         return render(request, 'edit.html', {"md": md[0]["content_md"]})
     if request.method == "POST":
@@ -20,8 +23,7 @@ def Edit(request):
         h5_txt = request.POST.get("html_txt")
         md_txt = request.POST.get("markdown_txt")
         is_recommend = request.POST.get("is_recommend")
-        print(h5_txt)
-        #models.Article.objects.create(title=title, desc=desc, category_id=category, tag_id=tag, content_h5=h5_txt, content_md=md_txt, is_recommend=is_recommend)
+        models.Article.objects.create(title=title, desc=desc, category=1, tag=1, content_h5=h5_txt, content_md=md_txt, is_recommend=is_recommend, user_id=1)
         return render(request, 'edit.html',)
 
 
