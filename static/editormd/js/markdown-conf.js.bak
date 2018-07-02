@@ -1,8 +1,8 @@
 $(function(){
     var testEditor;
     $(function() {
-        
-        $.get('/static/md/test1.md', function(md){
+
+        $.get(md, function(md){
     testEditor = editormd("test-editormd", {
         width: "90%",
         height: 740,
@@ -17,7 +17,7 @@ $(function(){
         saveHTMLToTextarea : true,    // 保存 HTML 到 Textarea
         searchReplace : true,
         //watch : false,                // 关闭实时预览
-        htmlDecode : "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启    
+        htmlDecode : "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启
         //toolbar  : false,             //关闭工具栏
         //previewCodeHighlight : false, // 关闭预览 HTML 的代码块高亮，默认开启
         emoji : true,
@@ -60,6 +60,31 @@ $("#hide-btn").bind('click', function(){
     testEditor.hide();
 });
 
+
+//预览HTML
+$("#preview-btn").bind('click', function() {
+    testEditor.previewing();
+});
+//提交
+$("#submission").bind('click', function () {
+    var title = $("#title").val();
+    var desc = $("#desc").val();
+    var category = $("#category").val();
+    var tag = $("#tag").val();
+    var html_txt = testEditor.getHTML();
+    var markdown_txt = testEditor.getMarkdown();
+    var is_recommend = $('#choice input[name = "is_recommend"]:checked').val();
+    $.ajax({
+        url:"/edit",
+        data:{"title": title, "desc": desc, "category": category, "tag": tag, "html_txt": html_txt, "markdown_txt": markdown_txt, "is_recommend": is_recommend},
+        type:'POST',
+        headers:{"X-CSRFToken":$.cookie('csrftoken')},  //防止csrf攻击
+        success:function (data) {
+            //alert(data);
+        }
+    });
+});
+
 $("#get-md-btn").bind('click', function(){
     // alert(testEditor.getMarkdown());
     var title = $("#title").val();
@@ -77,15 +102,15 @@ $("#get-md-btn").bind('click', function(){
 
 $("#get-html-btn").bind('click', function() {
     alert(testEditor.getHTML());
-});                
+});
 
 $("#watch-btn").bind('click', function() {
     testEditor.watch();
-});                 
+});
 
 $("#unwatch-btn").bind('click', function() {
     testEditor.unwatch();
-});              
+});
 
 $("#preview-btn").bind('click', function() {
     testEditor.previewing();

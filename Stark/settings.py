@@ -82,6 +82,17 @@ DATABASES = {
     }
 }
 
+#
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'pytest',
+#         'USER': 'root',
+#         'PASSWORD': '!QAZ2wsx',
+#         'HOST': '192.168.1.218',
+#         'PORT': '3306',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-password-validators

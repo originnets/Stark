@@ -2,7 +2,7 @@
 <html lang="zh">
     <head>
         <meta charset="utf-8" />
-        <title>Editor</title>
+        <title>编辑</title>
         <link rel="stylesheet" href="/static/editormd/css/style.css" />
         <link rel="stylesheet" href="/static/editormd/css/editormd.css" />
         <link rel="shortcut icon" href="https://pandao.github.io/editor.md/favicon.ico" type="image/x-icon" />
@@ -12,36 +12,32 @@
             <header>
                 <h1>编辑</h1>
             </header>
-            <div class="btns">
-{#                <button id="goto-line-btn">到达第90列</button>#}
-{#                <button id="show-btn">显示编辑器</button>#}
-{#                <button id="hide-btn">隐藏编辑器</button>#}
-{#                <button id="get-md-btn">获取Markdown格式</button>#}
-{#                <button id="get-html-btn">获取HTML格式</button>#}
-{#                <button id="watch-btn">查看</button>#}
-{#                <button id="unwatch-btn">隐藏</button>#}
-
-{#                <button id="fullscreen-btn">全屏(ESC取消)</button>#}
-{#                <button id="show-toolbar-btn">显示工具栏</button>#}
-{#                <button id="close-toolbar-btn">隐藏工具栏</button>#}
-{#                <button id="toc-menu-btn">ToC下拉菜单</button>#}
-{#                <button id="toc-default-btn">ToC 默认</button>#}
-                <div>
+			<div class="btns">
+			    <div>
                     <input type="text" id="title" name="title" placeholder="请输入标题" style="height: 40px; width: 100%; margin-top: 10px;">
                     <input type="text" id="desc" name="desc" placeholder="描述" style="height: 40px; width: 100%; margin-top: 10px;">
                     <input type="text" id="category" name="category" placeholder="类别" style="height: 40px; width: 49%; margin-top: 10px;margin-bottom: 10px; float: left;">
                     <input type="text" id="tag" name="tag" placeholder="标签" style="height: 40px; width: 49%; margin-top: 10px; margin-bottom: 10px;float: right;">
                     <button id="preview-btn">预览HTML</button>
                     <button id="submission">提交</button>
+                    <div id="choice">
+                    <label>是否推荐</label>
+                        <label>是</label>
+                        <input type="radio" name="is_recommend" value="True">
+                        <label>否</label>
+                        <input type="radio" name="is_recommend" value="False" checked>
+                    </div>
                 </div>
             </div>
-            <div id="test-editormd"></div>
+<div id="editormd">
+<textarea style="display:none;">
+{{ md }}
+</textarea>
+</div>
         </div>
         <script src="/static/editormd/js/jquery.min.js"></script>
         <script src="/static/editormd/js/editormd.js"></script>
         <script src="/static/editormd/js/jquery.cookie.js"></script>
         <script src="/static/editormd/js/markdown-conf.js"></script>
-        <script>
-        </script>
     </body>
 </html>

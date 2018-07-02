@@ -91,7 +91,8 @@ class ArticleManager(models.Manager):
 class Article(models.Model):
     title = models.CharField(max_length=50, verbose_name='文章标题')
     desc = models.CharField(max_length=50, verbose_name='文章描述')
-    content = models.TextField(verbose_name='文章内容')
+    content_h5 = models.TextField(verbose_name='文章内容(H5格式)')
+    content_md = models.TextField(verbose_name="文章内容(MD格式)")
     click_count = models.IntegerField(default=0, verbose_name='点击次数')
     is_recommend = models.BooleanField(default=False, verbose_name='是否推荐')
     date_publish = models.DateTimeField(auto_now_add=True, verbose_name='发布时间')

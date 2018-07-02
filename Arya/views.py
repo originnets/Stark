@@ -2,6 +2,7 @@ import os
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.shortcuts import render, get_object_or_404, reverse
 from Arya import models
+import json
 
 @csrf_exempt
 def Edit(request):
@@ -9,32 +10,20 @@ def Edit(request):
     markdown文本编辑器
     """
     if request.method == "GET":
-        v = models.Article.objects.filter().all()
-        return render(request, 'edit.html', {"v": v})
+        md = models.Article.objects.all().values('content_md')
+        return render(request, 'edit.html', {"md": md[0]["content_md"]})
     if request.method == "POST":
         title = request.POST.get("title")
         desc = request.POST.get("desc")
         category = request.POST.get("category")
         tag = request.POST.get("tag")
-        html_txt = request.POST.get("html_txt")
-        markdown_txt = request.POST.get("markdown_txt")
-       # print(title, desc, category, tag, html_txt, markdown_txt)
-        return render(request, 'edit.html', {"html_txt": html_txt})
-    # if request.method == "POST":
-    #     Abody = request.POST.get("Abody")
-    #     Title = request.POST.get("title", None)
-    #     Category = request.POST.get("category", None)
-    #     v = models.Article.objects.all()
-    #     if Title and Category:
-    #         models.Article.objects.create(ar_name=Title, category=Category)
-    #         w_url = os.getcwd()  # 获取当前工作目录
-    #         os.chdir(os.path.abspath('static\md'))  # 改变当前工作目录
-    #         with open(Title + ".md", 'w+') as f:  # 文件写入
-    #             f.write(Abody)
-    #         os.chdir(w_url)  # 还原当前工作目录
-    #         return render(request, 'edit.html', )
-    #     else:
-    #         return render(request, 'edit.html', )
+        h5_txt = request.POST.get("html_txt")
+        md_txt = request.POST.get("markdown_txt")
+        is_recommend = request.POST.get("is_recommend")
+        print(h5_txt)
+        #models.Article.objects.create(title=title, desc=desc, category_id=category, tag_id=tag, content_h5=h5_txt, content_md=md_txt, is_recommend=is_recommend)
+        return render(request, 'edit.html',)
+
 
 def Admin(request):
     return render(request, 'admin.html')
